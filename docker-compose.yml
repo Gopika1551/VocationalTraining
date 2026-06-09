@@ -1,0 +1,20 @@
+services:
+  app:
+    image: php:8.4-cli
+    container_name: vocational_app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8000:8000"
+    command: sleep infinity
+
+  db:
+    image: mysql:8.0
+    container_name: vocational_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vocationaltraningdb
+    ports:
+      - "3306:3306"
