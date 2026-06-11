@@ -25,7 +25,9 @@
             </div>
         @endif
 
-        <form method="GET" action="{{ route('dashboard') }}" class="mt-6 space-y-4">
+        <form method="POST" action="{{ route('login.submit') }}" class="mt-6 space-y-4">
+            @csrf
+
             <div>
                 <label for="national_id" class="block text-sm font-medium text-gray-700">National ID</label>
                 <input id="national_id"

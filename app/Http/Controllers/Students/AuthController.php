@@ -19,7 +19,7 @@ class AuthController extends Controller
     {
         $student = Student::where('national_id', $request->national_id)->first();
 
-        if (!$student || $student->otp != $request->otp) {
+        if (! $student || (string) $student->otp !== (string) $request->otp) {
             return back()->with('error', 'Invalid login');
         }
 
